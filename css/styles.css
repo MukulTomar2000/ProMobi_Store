@@ -1,0 +1,319 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px; /* Reduced padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 40px;
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-controls button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem; /* Reduced font size */
+  cursor: pointer;
+}
+
+.header-controls button i {
+  vertical-align: middle;
+}
+
+input[type="text"], input[type="number"], select {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.filters {
+  padding: 10px;
+  flex-wrap: wrap;
+  gap: 15px; /* Increased gap between filter elements */
+  margin-top: 70px; /* Adjusted margin to match reduced header height */
+}
+
+.filters label {
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+.filters select, .filters input, .filters button {
+  font-size: 0.9rem;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Increased gap between product items */
+  padding: 10px;
+  margin-top: 20px; /* Adjusted margin to ensure spacing */
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px; /* Reduced padding */
+  width: calc(25% - 15px); /* Adjusted for 4 items per row with larger gap */
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.product-item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.product-item button {
+  margin-top: 8px; /* Adjusted margin for button */
+}
+
+.product-details {
+  display: none;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.product-item.show-details .product-details {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #f9f9f9;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart.hidden {
+  display: none;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart ul li:last-child {
+  border-bottom: none;
+}
+
+.cart .quantity-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.close-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+/* Media Queries */
+@media (max-width: 375px) {
+  header {
+    flex-direction: column;
+    padding: 5px 5px; /* Reduced padding */
+  }
+
+  .header-controls {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+
+  .header-controls button {
+    font-size: 1.3rem; /* Adjusted icon size for mobile */
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 70px; /* Adjusted margin to prevent overlap with header */
+  }
+
+  .filters label {
+    font-size: 0.9rem;
+  }
+
+  .filters select, .filters input, .filters button {
+    font-size: 0.9rem;
+  }
+
+  .product-list {
+    padding: 10px;
+  }
+
+  .product-item {
+    width: calc(100% - 15px); /* Full width for small screens */
+    padding: 8px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .header-controls {
+    gap: 10px;
+  }
+
+  .header-controls button {
+    font-size: 1.3rem; /* Adjusted icon size for tablets */
+  }
+
+  .filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 70px; /* Adjusted margin to prevent overlap with header */
+  }
+
+  .filters select, .filters input {
+    width: auto;
+  }
+
+  .product-list {
+    padding: 10px;
+  }
+
+  .product-item {
+    width: calc(50% - 15px); /* Two items per row for tablets */
+  }
+}
+
+@media (min-width: 769px) {
+  .header-controls {
+    gap: 15px;
+  }
+
+  .header-controls button {
+    font-size: 1.6rem; /* Adjusted icon size for larger screens */
+  }
+
+  .filters {
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 70px; /* Adjusted margin to prevent overlap with header */
+  }
+
+  .product-item {
+    width: calc(25% - 15px); /* Four items per row with larger gap */
+  }
+}

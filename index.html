@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Application</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Add Font Awesome -->
+</head>
+<body>
+  <header>
+    <h2>Store</h2>
+    <div class="header-controls">
+      <input type="text" id="searchInput" placeholder="Search products...">
+      <button id="searchButton"><i class="fas fa-search"></i></button>
+      <button id="cartButton">🛒(0)</button>
+    </div>
+  </header>
+
+  <div class="filters">
+    <label for="categoryFilter">Category:</label>
+    <select id="categoryFilter">
+      <option value="">All</option>
+      <option value="mobile">Mobile</option>
+      <option value="fashion">Fashion</option>
+      <option value="sport">Sport</option>
+      <option value="electronics">Electronics</option>
+      <option value="home">Home</option>
+    </select>
+
+    <label for="priceFilter">Max Price:</label>
+    <input type="number" id="priceFilter" placeholder="Enter max price">
+    <button id="filterButton">Apply</button>
+  </div>
+
+  <main>
+    <div id="productList" class="product-list"></div>
+  </main>
+
+  <div id="cart" class="cart hidden">
+    <br><br>
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+    <p id="totalCost">Total Cost: ₹0</p>
+    <button id="clearCartButton">Clear Cart</button>
+    <button id="checkoutButton">Checkout</button>
+    <button id="closeCartButton">Close</button>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="productModal" class="modal">
+    <div id="modalContent" class="modal-content">
+      <button id="closeModalButton" class="close-button">X</button>
+      <!-- Product details will be injected here by JavaScript -->
+    </div>
+  </div>
+
+  <script src="/js/product.js" type="module"></script>
+  <script src="/js/script.js" type="module"></script>
+  <script src="/js/cart.js" type="module"></script>
+</body>
+</html>
