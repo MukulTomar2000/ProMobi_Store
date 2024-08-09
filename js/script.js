@@ -1,5 +1,5 @@
 import { getProducts } from './product.js';
-import { addToCart } from '../cart.js';
+import { addToCart } from './cart.js';
 
 let products = [];
 
