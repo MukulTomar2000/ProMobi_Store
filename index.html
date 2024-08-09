@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping Application</title>
+  <!-- Link to external CSS file for custom styles -->
   <link rel="stylesheet" href="/css/styles.css">
+  <!-- Link to Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Add Font Awesome -->
 </head>
 <body>
+  <!-- Header section with store title and controls -->
   <header>
     <h2>Store</h2>
     <div class="header-controls">
+      <!-- Search input and button -->
       <input type="text" id="searchInput" placeholder="Search products...">
       <button id="searchButton"><i class="fas fa-search"></i></button>
+      <!-- Cart button with a placeholder for item count -->
       <button id="cartButton">🛒(0)</button>
     </div>
   </header>
 
+  <!-- Filters for product category and price -->
   <div class="filters">
     <label for="categoryFilter">Category:</label>
     <select id="categoryFilter">
@@ -33,10 +39,12 @@
     <button id="filterButton">Apply</button>
   </div>
 
+  <!-- Main section to display product list -->
   <main>
     <div id="productList" class="product-list"></div>
   </main>
 
+  <!-- Cart section hidden by default -->
   <div id="cart" class="cart hidden">
     <br><br>
     <h2>Cart</h2>
@@ -47,14 +55,15 @@
     <button id="closeCartButton">Close</button>
   </div>
 
-  <!-- Modal Structure -->
+  <!-- Modal for product details, hidden by default -->
   <div id="productModal" class="modal">
     <div id="modalContent" class="modal-content">
+      <!-- Button to close the modal -->
       <button id="closeModalButton" class="close-button">X</button>
-      <!-- Product details will be injected here by JavaScript -->
     </div>
   </div>
 
+  <!-- Scripts for handling product, cart, and other functionalities -->
   <script src="/js/product.js" type="module"></script>
   <script src="/js/script.js" type="module"></script>
   <script src="/js/cart.js" type="module"></script>
